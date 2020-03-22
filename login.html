@@ -1,0 +1,33 @@
+<?php
+    include 'connect.php';
+?>
+    
+    <!DOCTYPE html>
+
+<head>
+    <link href="./form.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,900&display=swap" rel="stylesheet">
+    <script src="./js/login-in.js"></script>
+</head>
+
+<body>
+    <div class="sign-up">
+        <div class="sign-up-title">Sign In</div>
+        <form class="form">
+            
+            <div>
+                <p>Email:</p>
+                <div class="answer">
+                    <input type="text" id="email" />
+                </div>
+            </div>
+            <div>
+                <p>Password:</p>
+                <input type="password" id="pass" />
+            </div>
+            <input type="button" onclick="sign_in()" value="submit"/>
+        </form>
+    </div>
+
+
+</body>
