@@ -1,53 +1,63 @@
-
 <!DOCTYPE html>
 
 <head>
     <link href="./css/form.css" type="text/css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,900&display=swap" rel="stylesheet">
-    <script src="./js/sign-up.js"></script>
+    <script src="./js/profile.js"></script>
 </head>
 
 <body>
     <div class="sign-up">
-        <div class="sign-up-title">Sign Up form</div>
+        <div class="sign-up-title">Profile Update</div>
+        <center><div>Update profile to continue</div></center><br><br>
         <form class="form" action="profile.php" method="POST">
-            <div id="phone-div">
-                <p>:q
-		</p>
+            <div>
+                <p>Educational Qualification:</p>
+                <select class="select" id="qual" name="qual" onchange="check()">
+                    <option value="" disabled selected value> -- select an option -- </option>
+                    <option value='B. Tech'>B. Tech</option>
+                    <option value='M. Tech'>M. Tech</option>
+                    <option value='B. Sc.'>B. Sc.</option>
+                    <option value='M. Sc.'>M. Sc.</option>
+                    <option value='PhD'>PhD</option>
+                    <option value='B. Arch.'>B. Arch.</option>
+                </select>
+            </div>
+            <div>
+                <p>Gender:</p>
+                <select class="select" id="gender" name="gender" onchange="check()">
+                    <option value="" disabled selected value> -- select an option -- </option>
+                    <option value='Male'>Male</option>
+                    <option value='Female'>Female</option>
+                    <option value='Others'>Others</option>
+                </select>
+            </div>
+            <div>
+                <p>Name:</p>
                 <div class="answer">
-                    <input name="phone" type="text" onkeyup="phone_no(),check()" id="phone">
-                    <img src="assets/right.png" id="phone-right" style="display:none" />
-                    <img src="assets/wrong.png" id="phone-wrong" style="display:none" />
+                    <input name="name" type="text" onkeyup="name_check(),check()" id="name" />
+                    <img src="assets/right.png" id="name-right" style="display:none" />
+                    <img src="assets/wrong.png" id="name-wrong" style="display:none" />
                 </div>
             </div>
             <div>
-                <p>Email:</p>
+                <p>City:</p>
                 <div class="answer">
-                    <input name="email" type="text" onkeyup="mail(),check()" id="email_add" />
-                    <img src="assets/right.png" id="email-right" style="display:none" />
-                    <img src="assets/wrong.png" id="email-wrong" style="display:none" />
+                    <input name="city" type="text" onkeyup="city_check(),check()" id="city" />
+                    <img src="assets/right.png" id="city-right" style="display:none" />
+                    <img src="assets/wrong.png" id="city-wrong" style="display:none" />
                 </div>
             </div>
             <div>
-                <p>Password:</p>
-                <input name="password" type="password" id="pass"/>
-            </div>
-            <div>
-                <p>Confirm Password:</p>
+                <p>Photo:</p>
                 <div class="answer">
-                    <input type="password" id="confirm_pass" onkeyup="confirm_password(),check()" />
-                    <img src="assets/right.png" id="pass-right" style="display:none" />
-                    <img src="assets/wrong.png" id="pass-wrong" style="display:none" />
+                    <input type="file" id="photo" name="photo" onchange="check()" accept="image/*" />
+                    <img src="assets/right.png" id="photo-right" style="display:none" />
+                    <img src="assets/wrong.png" id="photo-wrong" style="display:none" />
                 </div>
             </div>
             <div>
-                <p>Username:</p>
-                <input id="uname" type="text" name="username" onkeyup="check()"/>
-                <img src="assets/right.png" id="phone-right" style="display:none" />
-                <img src="assets/wrong.png" id="phone-wrong" style="display:none" />
-            </div>
-            <div>
-                <input type="submit" id="submit" disabled/>
+                <input type="submit" id="submit" disabled />
             </div>
         </form>
     </div>
