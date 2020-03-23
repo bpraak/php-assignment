@@ -1,5 +1,5 @@
 function name_check() {
-    var confirm_name = /^[A-Za-z]+$/;
+    var confirm_name = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
     var name = document.getElementById("name").value;
     if (confirm_name.test(name)) {
         document.getElementById("name-wrong").style.display = "none";
@@ -35,8 +35,9 @@ function check() {
     }
     else {
         var confirm = /^[A-Za-z]+$/;
+        var confirm_name = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
 
-        if (confirm.test(name) && confirm.test(city)) {
+        if (confirm_name.test(name) && confirm.test(city)) {
             document.getElementById("submit").disabled = false;
         }
         else {

@@ -3,14 +3,14 @@
 <head>
     <link href="./css/form.css" type="text/css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,900&display=swap" rel="stylesheet">
-    <script src="./js/profile.js"></script>
+    <script src="js/profile.js"></script>
 </head>
 
 <body>
     <div class="sign-up">
         <div class="sign-up-title">Profile Update</div>
         <center><div>Update profile to continue</div></center><br><br>
-        <form class="form" action="profile.php" method="POST">
+        <form class="form" action="profile.php" method="POST" enctype="multipart/form-data">
             <div>
                 <p>Educational Qualification:</p>
                 <select class="select" id="qual" name="qual" onchange="check()">
