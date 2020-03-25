@@ -137,23 +137,27 @@ button {
     grid-template-columns: 90% 10%;
 }
 
-.msg {
+.msg-my {
     display: inline;
     text-align: right;
-    margin: 2rem 0;
+    margin: 1rem 0;
 
+}
+
+.msg-his {
+    margin: 1rem 0;
 }
 
 .my {
     padding: 0.3rem 1rem;
-    background-color: cadetblue;
+    background-color: #008081;
     border-radius: 10px 0 0 10px;
     color: white;
 }
 
 .his {
     padding: 0.3rem 1rem;
-    background-color: cadetblue;
+    background-color: #81d8d0;
     border-radius: 0px 10px 10px 0px;
     color: white;
 }
@@ -161,35 +165,36 @@ button {
 .people {
     display: grid;
     grid-template-columns: 20% 80%;
-    grid-column-gap: 2rem;;
+    grid-column-gap: 2rem;
+    ;
 }
 
-.dp{
+.dp {
     border-radius: 50%;
-    width : 4rem;
-    height : 4rem;
+    width: 4rem;
+    height: 4rem;
 }
 
-.list-item{
-    display : grid;
+.list-item {
+    display: grid;
     grid-template-columns: 30% 30% 30%;
 }
 
-.list-wrapper{
+.list-wrapper {
     display: grid;
     grid-template-rows: 50% 50%;
 }
 
-a.no-link{
+a.no-link {
     text-decoration: none;
-    color:black;
+    color: black;
 }
 
-.my-dp{
+.my-dp {
     max-width: 10rem;
     max-height: 14rem;
 }
 
-.photo{
-    margin:auto;
+.photo {
+    margin: auto;
 }
