@@ -3,10 +3,13 @@ include 'connect.php';
 
 session_start();
 
+$phone = htmlspecialchars($_POST['phone']);
+$password = htmlspecialchars($_POST['password']);
 $qual = htmlspecialchars($_POST['qual']);
 $gender = htmlspecialchars($_POST['gender']);
 $name = htmlspecialchars($_POST['name']);
 $city = htmlspecialchars($_POST['city']);
+
 $photo_name = $_FILES['photo']['name'];
 $photo_name_tmp = $_FILES['photo']['tmp_name'];
 $id = $_SESSION['user_id'];
@@ -38,28 +41,31 @@ if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpe
 
 if ($uploadOk == 0) {
     echo "<script>alert('Sorry, your file was not uploaded.')</script>";
-    echo "<script>window.location.replace('profile.html');</script>";
-} 
-else {
-    if (move_uploaded_file($photo_name_tmp, $dest."profile_".$id.".png")) {
+    echo "<script>window.location.replace('edit.php');</script>";
+} else {
+    if (move_uploaded_file($photo_name_tmp, $dest . "profile_" . $id . "." . $imageFileType)) {
         echo "<script>alert('Successfully uploaded file')</script>";
-    } 
-    else {
+    } else {
         echo "<script>alert('Sorry, there was an error uploading your file')</script>";
-        echo "<script>window.location.replace('profile.html');</script>";
+        echo "<script>window.location.replace('edit.php');</script>";
 
     }
 }
 
-$sql = "INSERT into prakhar_profile (`user_id`,qual,`name`,city,dp,gender) values ('$id','$qual','$name','$city','$photo_name','$gender')";
+$sql1 = "update prakhar_user set phone = '$phone',`password`='$password' where user_id='$id'";
+$sql1 = "update prakhar_profile set name = '$name',`gender`='$gender',city='$city' where user_id='$id'";
 
 
-if (isset($qual, $name, $city, $gender)) {
+if (isset($qual, $name, $city, $gender,$phone, $password)) {
     $confirm_city = "/^[A-Za-z]+$/";
     $confirm_name = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/";
-    if (preg_match($confirm_city, $city) && preg_match($confirm_name, $name)) {
-        $result = mysqli_query($conn, $sql);
-        if (!$result) {
+    $confirm_phone = "/^(\+91|91|0)* ?[6-9]{1}\d{9}$/";
+
+    if (preg_match($confirm_city, $city) && preg_match($confirm_name, $name) && preg_match($confirm_phone, $phone) ){
+        $result1 = mysqli_query($conn, $sql1);
+        $result2 = mysqli_query($conn, $sql2);
+
+        if (!$result1) {
             die('QUERY FAILED' . mysqli_error($conn));
         } 
         else {
@@ -71,6 +77,4 @@ if (isset($qual, $name, $city, $gender)) {
 
 }
 
-else{
-    echo "<script>alert('One or more fields are empty');window.location.replace('profile.html');</script>";
-}
+?>

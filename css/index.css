@@ -179,3 +179,17 @@ button {
     display: grid;
     grid-template-rows: 50% 50%;
 }
+
+a.no-link{
+    text-decoration: none;
+    color:black;
+}
+
+.my-dp{
+    max-width: 10rem;
+    max-height: 14rem;
+}
+
+.photo{
+    margin:auto;
+}

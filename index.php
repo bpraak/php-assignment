@@ -17,6 +17,7 @@
     <link href="./css/index.css" type="text/css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,900&display=swap" rel="stylesheet">
     <script src="./js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -32,8 +33,9 @@
                     while($row=mysqli_fetch_assoc($result)){
                 ?>
                 <li>
+                    <a href="index.php?uid=<?php echo $row['user_id']; ?>" class="no-link">
                     <div class="people">
-                    <div ><img class="dp" src="uploads/profile_<?php echo $id ?>.png"></div>
+                    <div ><img class="dp" src="uploads/profile_<?php echo $row['user_id'] ?>.png"></div>
                     <div class="list-wrapper">
                         <div><?php echo $row['name'] ?></div>
                         <div class="list-item">
@@ -43,6 +45,7 @@
                         </div>
                     </div>
                     </div>
+                    </a>
                 </li>
                     <?php } ?>
             </ol>
@@ -50,7 +53,7 @@
         <div class="grid">
             <div class="info">
                 <div class="top-info">
-                    <a href="">Edit Profile</a>
+                    <a href="edit.php">Edit Profile</a>
                     <a href="logout.php">Logout</a>
                 </div>
                 <div class="bottom-info">
@@ -87,32 +90,34 @@
                         </div>
                     </div>
                     <div class="photo">
-                        <img src="">
+                        <img src="uploads/profile_<?php echo $id ?>.png" class="my-dp">
                     </div>
                 </div>
             </div>
             <div class="chat">
                 <div class="heading">
-                    <center>CHAT : Someone</center>
+                    <center>
+                        CHAT : <?php 
+                                    if(isset($_GET['uid'])){
+                                        $to_id = $_GET['uid'];
+                                        $person = "select name from prakhar_profile where user_id='$to_id'";
+                                        $result = mysqli_query($conn,$person);
+                                        $re = mysqli_fetch_assoc($result);
+                                        echo $re['name'];
+                                    } 
+                                    else echo "Select a person";
+                                ?>
+                    </center>
                 </div>
                 <div class="chat-box">
                     <div class="chat-fixed">
                         <div><input type="text" name="message"></div>
-                        <div><button>Send</button></div>
+                        <div><button id="send" onclick="send_msg()">Send</button></div>
                     </div>
                     <div class="msg-wrapper">
                     <div class="msg">11pm<span class="my">Your Message</span></div>
                     <div><span class="his">his Message</span>11pm</div>
-                    <div class="msg">11pm<span class="my">Your Message</span></div>
-                    <div><span class="his">his Message</span>11pm</div>
-                    <div class="msg">11pm<span class="my">Your Message</span></div>
-                    <div><span class="his">his Message</span>11pm</div>
-                    <div class="msg">11pm<span class="my">Your Message</span></div>
-                    <div><span class="his">his Message</span>11pm</div>
-                    <div class="msg">11pm<span class="my">Your Message</span></div>
-                    <div><span class="his">his Message</span>11pm</div>
-                    <div class="msg">11pm<span class="my">Your Message</span></div>
-                    <div><span class="his">his Message</span>11pm</div>
+                    
                     </div>
                 </div>
             </div>
