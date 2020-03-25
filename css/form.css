@@ -1,19 +1,21 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i,900);
+
 * {
-    font-size:16px;
-    font-family: Nunito Sans;
-    margin: 0 ;
+    font-size: 16px;
+    font-family: Raleway;
+    margin: 0;
 }
 
-.select{
+.select {
     width: 300px
 }
 
-input:not([type="radio"]){
+input:not([type="radio"]) {
     width: 300px;
     border-radius: 4px;
 }
 
-.sign-up-title{
+.sign-up-title {
     margin: 1rem auto 2rem auto;
     display: flex;
     justify-content: center;
@@ -23,18 +25,18 @@ input:not([type="radio"]){
 }
 
 .form {
-    display : grid;
+    display: grid;
     grid-template-rows: 10;
     justify-content: center;
     grid-row-gap: 1.1rem;
-    
+
 }
 
-.answer{
-    display:flex;
+.answer {
+    display: flex;
     justify-content: stretch;
 }
 
-img{
+img {
     height: 30px
 }

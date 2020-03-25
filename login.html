@@ -1,33 +1,41 @@
-<?php
-    include 'connect.php';
-?>
-    
-    <!DOCTYPE html>
+<!DOCTYPE html>
 
 <head>
-    <link href="./form.css" type="text/css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,900&display=swap" rel="stylesheet">
-    <script src="./js/login-in.js"></script>
+    <link href="./css/form.css" type="text/css" rel="stylesheet" />
+
 </head>
 
 <body>
     <div class="sign-up">
         <div class="sign-up-title">Sign In</div>
-        <form class="form">
+        <form class="form" action="login.php" method='POST'>
             
             <div>
-                <p>Email:</p>
+                <p>Email/Username:</p>
                 <div class="answer">
-                    <input type="text" id="email" />
+                    <input type="text" name="email" id="email" onkeyup="check()" />
                 </div>
             </div>
             <div>
                 <p>Password:</p>
-                <input type="password" id="pass" />
-            </div>
-            <input type="button" onclick="sign_in()" value="submit"/>
+                <input type="password" name="pass" id="pass" onkeyup="check()" />
+            </div><br>
+            <input type="submit" id="submit" disabled />
         </form>
     </div>
 
+<script>
+    function check() {
+        var email = document.getElementById("email").value;
+        var pass = document.getElementById("pass").value;
+
+        if (email!=""&&pass!=""){
+            document.getElementById("submit").disabled = false;
+        }
+        else{
+            document.getElementById("submit").disabled = true;
+        }
+    }
+</script>
 
 </body>

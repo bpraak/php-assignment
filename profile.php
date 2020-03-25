@@ -64,6 +64,8 @@ if (isset($qual, $name, $city, $gender)) {
         } 
         else {
             echo "<script>alert('succes')</script>";
+            echo "<script>window.location.href = 'index.php'</script>";
+
         }
     }
 
