@@ -122,8 +122,9 @@ ol.gradient-list>li {
 
 .msg-wrapper {
     display: flex;
-    flex-direction: column-reverse;
-    overflow-y: scroll;
+    flex-direction: column;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 input,

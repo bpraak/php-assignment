@@ -10,7 +10,7 @@ function send_msg(to,from){
             from: from
         },
         success: function (response) {
-                $('.msg-wrapper').prepend(response);
+                $('.msg-wrapper').append(response);
                 document.getElementById('msg').value = "";
              }
     });
@@ -33,8 +33,33 @@ function get_msg(to,from){
             from: from
         },
         success: function (response) {
-            $('.msg-wrapper').html(response);
+            if($('.msg-wrapper').html()!=response){
+                $('.msg-wrapper').html(response);
+                $('.msg-wrapper').scrollTop($('.msg-wrapper')[0].scrollHeight);
+                $('.msg-wrapper').animate({ scrollTop: $('.msg-wrapper').scrollHeight }, 1000);
+
+                // $('.msg-wrapper').scrollTop($('.msg-wrapper').height());
+
+            }
             setTimeout(get_msg(to,from),1000);
+        }
+    });
+
+}
+
+function get_msg_first(to, from) {
+    $.ajax({
+        url: "get_msg.php",
+        type: "POST",
+        data: {
+            to: to,
+            from: from
+        },
+        success: function (response) {
+            $('.msg-wrapper').html(response);
+            $('.msg-wrapper').animate({scrollTop: $('.msg-wrapper').scrollHeight}, 1000);
+            // $('.msg-wrapper').scrollTop($('.msg-wrapper').height());
+            setTimeout(get_msg(to, from), 1000);
         }
     });
 

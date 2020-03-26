@@ -115,18 +115,16 @@
                         <div><button id="send" onclick="send_msg(<?php echo $to_id; ?>,<?php echo $id; ?>)">Send</button></div>
                     </div>
                     <div class="msg-wrapper">
-                    <!-- <div class="msg-my">11pm<span class="my">Your Message</span></div>
-                    <div class="msg-his"><span class="his">his Message</span>11pm</div>
-                    <div class="msg-my">11pm<span class="my">Your Message</span></div>
-                    <div class="msg-his"><span class="his">his Message</span>11pm</div> -->
-                    <?php 
-                    if(isset($_GET['uid'])){
-                        ?>
-                    <script>
-                        setTimeout(get_msg(<?php echo $to_id; ?>,<?php echo $id; ?>),1000);
-                    </script>
-                    <?php } ?>
+                    
                     </div>
+                    <?php
+                        if (isset($_GET['uid'])) {
+                            if($_GET['uid']!=$id){
+                    ?>
+                        <script>
+                            setTimeout(get_msg(<?php echo $to_id; ?>,<?php echo $id; ?>),1000);
+                        </script>
+                    <?php }}?>
                 </div>
             </div>
         </div>

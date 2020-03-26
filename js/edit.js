@@ -61,3 +61,7 @@ function check_it() {
         }
     }
 }
+
+function cancel_edit(){
+    window.location.href = 'index.php';
+}

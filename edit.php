@@ -88,6 +88,9 @@
             <div> 
                 <input type="submit" id="submit" disabled/>
             </div>
+            <div> 
+                <input type="button" onclick="cancel_edit()"/>
+            </div>
         </form>
     </div>
 
