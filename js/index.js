@@ -35,7 +35,7 @@ function get_msg(to,from){
         success: function (response) {
             if($('.msg-wrapper').html()!=response){
                 $('.msg-wrapper').html(response);
-                $('.msg-wrapper').scrollTop($('.msg-wrapper')[0].scrollHeight);
+                // $('.msg-wrapper').scrollTop($('.msg-wrapper')[0].scrollHeight);
                 $('.msg-wrapper').animate({ scrollTop: $('.msg-wrapper').scrollHeight }, 1000);
 
                 // $('.msg-wrapper').scrollTop($('.msg-wrapper').height());

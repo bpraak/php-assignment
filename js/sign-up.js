@@ -37,12 +37,40 @@ function confirm_password() {
     }
 }
 
+var ucheck=0;
+
+function username_c(){
+    var username = document.getElementById('username').value;
+    $.ajax({
+        url: "check_username.php",
+        type: "POST",
+        data: {
+            username : username
+        },
+        success: function (response) {
+            if(response==1){
+                document.getElementById("uname-wrong").style.display = "none";
+                document.getElementById("uname-right").style.display = "";
+                 ucheck = 1;
+                 check();
+            }
+            else{
+                document.getElementById("uname-wrong").style.display = "";
+                document.getElementById("uname-right").style.display = "none";
+                 ucheck=0;
+                 check();
+            }
+        }
+    });
+}
+
 function check() {
     var phone = document.getElementById("phone").value;
     var email = document.getElementById("email_add").value;
     var pass = document.getElementById("pass").value;
     var cpass = document.getElementById("confirm_pass").value;
-    var uname = document.getElementById("uname").value;
+    var uname = document.getElementById("username").value;
+    // alert(uname);
     if (phone.length == 0 || email.length == 0 || pass.length == 0 || cpass.length == 0 || uname.length == 0 ) { 
         document.getElementById("submit").disabled = true;
     }
@@ -53,7 +81,7 @@ function check() {
 
 
 
-        if (confirm_phone.test(phone) && confirm_email.test(email) && (cpass == pass)) {
+        if (confirm_phone.test(phone) && confirm_email.test(email) && (cpass == pass) && (ucheck==1)) {
             document.getElementById("submit").disabled = false;
         }
         else {

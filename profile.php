@@ -51,7 +51,7 @@ else {
     }
 }
 
-$sql = "INSERT into prakhar_profile (`user_id`,qual,`name`,city,dp,gender) values ('$id','$qual','$name','$city','$photo_name','$gender')";
+$sql = "INSERT into prakhar_profile (`user_id`,qual,`name`,city,gender) values ('$id','$qual','$name','$city','$gender')";
 
 
 if (isset($qual, $name, $city, $gender)) {

@@ -5,6 +5,8 @@
     <link href="./css/form.css" type="text/css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,900&display=swap" rel="stylesheet">
     <script src="./js/sign-up.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -29,7 +31,7 @@
             </div>
             <div>
                 <p>Password:</p>
-                <input name="password" type="password" id="pass"/>
+                <input name="password" type="password" id="pass" onkeyup="confirm_password(),check()"/>
             </div>
             <div>
                 <p>Confirm Password:</p>
@@ -41,9 +43,9 @@
             </div>
             <div>
                 <p>Username:</p>
-                <input id="uname" type="text" name="username" onkeyup="check()"/>
-                <img src="assets/right.png" id="phone-right" style="display:none" />
-                <img src="assets/wrong.png" id="phone-wrong" style="display:none" />
+                <input id="username" type="text" name="username" onkeyup="username_c()"/>
+                <img src="assets/right.png" id="uname-right" style="display:none" />
+                <img src="assets/wrong.png" id="uname-wrong" style="display:none" />
             </div>
             <div>
                 <input type="submit" id="submit" disabled/>

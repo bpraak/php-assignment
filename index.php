@@ -7,6 +7,14 @@
     if(!isset($_SESSION['user_id'])){
         header("Location:first.html");
     }
+    else{
+        $sl = "select * from prakhar_profile where user_id=".$_SESSION['user_id'];
+        $d = mysqli_query($conn,$sl);
+        $ro = mysqli_num_rows($d);
+        if(!$ro){
+            header("Location:profile.html");
+        }
+    }
     $id = $_SESSION['user_id'];
 
 ?>

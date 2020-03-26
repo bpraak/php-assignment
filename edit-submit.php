@@ -43,7 +43,7 @@ if ($uploadOk == 0) {
     echo "<script>alert('Sorry, your file was not uploaded.')</script>";
     echo "<script>window.location.replace('edit.php');</script>";
 } else {
-    if (move_uploaded_file($photo_name_tmp, $dest . "profile_" . $id . "." . $imageFileType)) {
+    if (move_uploaded_file($photo_name_tmp, $dest . "profile_" . $id . ".png") ){
         echo "<script>alert('Successfully uploaded file')</script>";
     } else {
         echo "<script>alert('Sorry, there was an error uploading your file')</script>";
