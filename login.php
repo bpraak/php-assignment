@@ -6,6 +6,8 @@ session_unset();
 $name = htmlspecialchars($_POST['email']);
 $pass = htmlspecialchars($_POST['pass']);
 
+
+
 if (isset($name, $pass)) {
     $sql = "SELECT prakhar_user.* from prakhar_user where (email='$name' and `password`='$pass') or (username='$name' and `password`='$pass')";
     $result = mysqli_query($conn, $sql);
@@ -13,10 +15,13 @@ if (isset($name, $pass)) {
         $row = mysqli_fetch_array($result);
         $id =$row['user_id'];
         $n = mysqli_num_rows($result);
-        echo "<script>alert('$id');</script>";
 
         if ($n) {
-            
+            if(!empty($_POST["remember"])){
+                setcookie("username",$name,time() + (86400 * 30), "/");
+                $epass = password_hash($pass,PASSWORD_BCRYPT);
+                setcookie("pass",$epass,time() + (86400 * 30), "/");
+            }
             $_SESSION['user_id']=$id;
 
             echo "<script>alert('Login Successful');</script>";
@@ -24,7 +29,7 @@ if (isset($name, $pass)) {
         }
         else {
             echo "<script>alert('Incorrect credentials');</script>";
-            echo "<script>window.location.replace('login.html');</script>";
+            echo "<script>window.location.replace('login_page.php');</script>";
         }
     }
     else{

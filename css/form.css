@@ -10,7 +10,7 @@
     width: 300px
 }
 
-input:not([type="radio"]) {
+input:not([type="checkbox"]) {
     width: 300px;
     border-radius: 4px;
 }

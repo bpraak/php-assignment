@@ -7,7 +7,7 @@
     else{
         echo "<script>alert('" . $_SESSION['user_id'] . "')</script>";
 
-        echo "<script>window.location.href = 'login.html'</script>";
+        echo "<script>window.location.href = 'login_page.php'</script>";
     }
 ?>
 

@@ -2,8 +2,23 @@
     include 'connect.php';
     session_start();
 
-    
-
+    // if(isset($_COOKIE['username'])&&isset($_COOKIE['pass'])){
+    //     $uname = $_COOKIE['username'];
+    //     $pass = $_COOKIE['pass'];
+    //     $cookie_sql = "select `password`,user_id from prakhar_user where username='$uname'";
+    //     $cookie_data = mysqli_query($conn,$cookie_sql);
+        
+    //     if($cookie_data){
+    //         $cookie_row = mysqli_fetch_assoc($cookie_data);
+    //         if(password_verify($cookie_data['password'],$pass)){
+    //             unset($_SESSION['user_id']);
+    //             $_SESSION['user_id'] = $cookie_data['user_id'];
+    //         }
+    //     } 
+    //     else{
+    //     die('QUERY FAILED' . mysqli_error($conn));
+    //     }
+    // }
     if(!isset($_SESSION['user_id'])){
         header("Location:first.html");
     }
@@ -16,6 +31,7 @@
         }
     }
     $id = $_SESSION['user_id'];
+    
 
 ?>
 
@@ -130,7 +146,7 @@
                             if($_GET['uid']!=$id){
                     ?>
                         <script>
-                            setTimeout(get_msg(<?php echo $to_id; ?>,<?php echo $id; ?>),1000);
+                            setTimeout(get_msg_first(<?php echo $to_id; ?>,<?php echo $id; ?>),1000);
                         </script>
                     <?php }}?>
                 </div>
