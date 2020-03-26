@@ -3,10 +3,11 @@ include 'connect.php';
 
 session_start();
 session_unset();
-$name = htmlspecialchars($_POST['email']);
-$pass = htmlspecialchars($_POST['pass']);
+$n = htmlspecialchars($_POST['email']);
+$p = htmlspecialchars($_POST['pass']);
 
-
+$name = mysqli_real_escape_string($conn,$n);
+$pass = mysqli_real_escape_string($conn,$p);
 
 if (isset($name, $pass)) {
     $sql = "SELECT prakhar_user.* from prakhar_user where (email='$name' and `password`='$pass') or (username='$name' and `password`='$pass')";
