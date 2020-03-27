@@ -3,10 +3,16 @@ include 'connect.php';
 
 session_start();
 
-$qual = htmlspecialchars($_POST['qual']);
-$gender = htmlspecialchars($_POST['gender']);
-$name = htmlspecialchars($_POST['name']);
-$city = htmlspecialchars($_POST['city']);
+$q = htmlspecialchars($_POST['qual']);
+$g = htmlspecialchars($_POST['gender']);
+$n = htmlspecialchars($_POST['name']);
+$c = htmlspecialchars($_POST['city']);
+
+$qual = mysqli_real_escape_string($conn,$q);
+$gender = mysqli_real_escape_string($conn, $g);
+$name = mysqli_real_escape_string($conn, $n);
+$city = mysqli_real_escape_string($conn, $c);
+
 $photo_name = $_FILES['photo']['name'];
 $photo_name_tmp = $_FILES['photo']['tmp_name'];
 $id = $_SESSION['user_id'];
