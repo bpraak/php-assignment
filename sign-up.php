@@ -5,15 +5,15 @@ session_start();
 
 $p = htmlspecialchars($_POST['phone']);
 $e = htmlspecialchars($_POST['email']);
-$pass = htmlspecialchars($_POST['password']);
+$pas = htmlspecialchars($_POST['password']);
 $u = htmlspecialchars($_POST['username']);
 
 $phone = mysqli_real_escape_string($conn, $p);
 $email = mysqli_real_escape_string($conn, $e);
-$password = mysqli_real_escape_string($conn, $pass);
+$pass = mysqli_real_escape_string($conn, $pas);
 $username = mysqli_real_escape_string($conn, $u);
 
-
+$password = password_hash($pass,PASSWORD_BCRYPT);
 
 $confirm_phone = "/^(\+91|91|0)* ?[6-9]{1}\d{9}$/";
 $confirm_email = "/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/";

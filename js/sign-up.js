@@ -89,3 +89,24 @@ function check() {
         }
     }
 }
+
+function email_check(){
+    var email = document.getElementById("email_add").value;
+    $.ajax({
+        url: "email_check.php",
+        type: "POST",
+        data: {
+            email: email
+        },
+        success: function (response) {
+            if (response == 1) {
+                return true;
+            }
+            else {
+                alert('This email already exists. Try login or use a different email.');
+                return false;
+            }
+        }
+    });
+
+}
