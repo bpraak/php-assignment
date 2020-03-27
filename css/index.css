@@ -84,6 +84,7 @@ ol.gradient-list>li {
     justify-content: space-evenly;
     align-items: center;
     margin-bottom: 0.5rem;
+    cursor: pointer;
 }
 
 .bottom-info {
@@ -199,3 +200,5 @@ a.no-link {
 .photo {
     margin: auto;
 }
+
+a {}

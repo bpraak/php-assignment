@@ -64,3 +64,17 @@ function get_msg_first(to, from) {
     });
 
 }
+
+function logout() {
+    $.ajax({
+        url: "delete_sess.php",
+        type: "POST",
+        data: {
+        },
+        success: function (response) {
+            if(response==1){
+                window.location.href = 'logout.php';
+            }
+        }
+    });
+}   

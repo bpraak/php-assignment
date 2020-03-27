@@ -3,6 +3,7 @@
 
     session_start();
 
+    
     $phone = htmlspecialchars($_POST['phone']);
     $email = htmlspecialchars($_POST['email']);
     $password = htmlspecialchars($_POST['password']);

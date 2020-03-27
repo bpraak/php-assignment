@@ -20,7 +20,7 @@
     //     }
     // }
     if(!isset($_SESSION['user_id'])){
-        header("Location:first.html");
+        header("Location:login_page.php");
     }
     else{
         $sl = "select * from prakhar_profile where user_id=".$_SESSION['user_id'];
@@ -78,7 +78,7 @@
             <div class="info">
                 <div class="top-info">
                     <a href="edit.php">Edit Profile</a>
-                    <a href="logout.php">Logout</a>
+                    <a href="" onclick="logout()">Logout</a>
                 </div>
                 <div class="bottom-info">
                     <div class="not-photo">
@@ -146,7 +146,7 @@
                             if($_GET['uid']!=$id){
                     ?>
                         <script>
-                            setTimeout(get_msg_first(<?php echo $to_id; ?>,<?php echo $id; ?>),1000);
+                            setTimeout(get_msg_first(<?php echo $to_id; ?>,<?php echo $id; ?>),1000); 
                         </script>
                     <?php }}?>
                 </div>
