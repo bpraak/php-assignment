@@ -1,6 +1,7 @@
 
 function send_msg(to,from){
     var msg = document.getElementById('msg').value;
+    if(msg!=""){
     $.ajax({
         url: "send.php",
         type: "POST",
@@ -11,9 +12,14 @@ function send_msg(to,from){
         },
         success: function (response) {
                 $('.msg-wrapper').append(response);
+                $('.msg-wrapper').animate({ scrollTop: $('.msg-wrapper').scrollHeight}, 1000);
                 document.getElementById('msg').value = "";
              }
     });
+    }
+    else{
+        alert('enter a msg then send');
+    }
 
 }
 
@@ -36,7 +42,7 @@ function get_msg(to,from){
             if($('.msg-wrapper').html()!=response){
                 $('.msg-wrapper').html(response);
                 // $('.msg-wrapper').scrollTop($('.msg-wrapper')[0].scrollHeight);
-                $('.msg-wrapper').animate({ scrollTop: $('.msg-wrapper').scrollHeight }, 1000);
+                $('.msg-wrapper').animate({ scrollTop: $('.msg-wrapper').scrollHeight}, 1000);
 
                 // $('.msg-wrapper').scrollTop($('.msg-wrapper').height());
 
@@ -78,3 +84,7 @@ function logout() {
         }
     });
 }   
+
+function check(){
+
+}
