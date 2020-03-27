@@ -20,7 +20,7 @@
     //     }
     // }
     if(!isset($_SESSION['user_id'])){
-        header("Location:login_page.php");
+        header("Location:first.php");
     }
     else{
         $sl = "select * from prakhar_profile where user_id=".$_SESSION['user_id'];
