@@ -84,7 +84,3 @@ function logout() {
         }
     });
 }   
-
-function check(){
-
-}

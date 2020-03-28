@@ -11,4 +11,6 @@ if ($conn -> connect_errno) {
   echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
   die();
 }
+
+ini_set('session.cookie_lifetime', 0);
 ?>
