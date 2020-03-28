@@ -1,10 +1,10 @@
 <?php
-    include '$connect.php';
+    include 'connect.php';
     
     session_start();
     session_unset();
     session_destroy();
 
     
-    exit();
+    echo "<script>window.location.replace('first.php');</script>";
 ?>
