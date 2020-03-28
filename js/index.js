@@ -79,6 +79,7 @@ function logout() {
         },
         success: function (response) {
             if(response==1){
+                alert(response);
                 window.location.href = 'logout.php';
             }
         }
