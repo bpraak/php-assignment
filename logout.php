@@ -6,5 +6,5 @@
     session_destroy();
 
     
-    echo "<script>window.location.replace('first.php');</script>";
+    exit();
 ?>
