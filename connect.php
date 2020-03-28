@@ -12,5 +12,5 @@ if ($conn -> connect_errno) {
   die();
 }
 
-ini_set('session.cookie_lifetime', 0);
+ini_set('session.cookie_lifetime', -1);
 ?>

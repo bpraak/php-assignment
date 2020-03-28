@@ -2,6 +2,11 @@
     include 'connect.php';
     
     session_start();
+
+    if(isset($_SESSION['user_id'])){
+        header('Location:index.php');
+    }
+    else{
     session_unset();
 
     if (isset($_COOKIE['sess_id'])) {
@@ -31,6 +36,7 @@
         }
     }
 }
+    }
 
 ?>
 
@@ -46,7 +52,7 @@
     <div class="sign-up"><br><br>
         <center>
         <a href="login_page.php"><input type="button" value="Login"></a><br><br>
-        <a href="sign-up.html"><input type="button" value="Sign-up"></a>
+        <a href="sign-up.php"><input type="button" value="Sign-up"></a>
         </center>
     </div>
 
