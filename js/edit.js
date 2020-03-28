@@ -45,7 +45,7 @@ function check_it() {
     var photo = document.getElementById("photo").value;
     var phone = document.getElementById("phone").value;
     var pass = document.getElementById("pass").value;
-    if (phone.length == 0  || pass.length == 0 || name.length == 0 || city.length == 0 ||  photo.length == 0) {
+    if (phone.length == 0  || pass.length == 0 || name.length == 0 || city.length == 0 ||  qual.length == 0 || gender.length==0) {
         document.getElementById("submit").disabled = true;
     }
     else {
